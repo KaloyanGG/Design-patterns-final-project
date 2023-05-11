@@ -1,7 +1,4 @@
-export interface IBurgerCommand {
-
-    // name: string;
-    // price: number;
-    execute(): void;
-
+export interface IBurger {
+    price: number;
+    type: string;
 }

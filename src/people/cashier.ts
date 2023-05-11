@@ -1,12 +1,14 @@
-import { ClassicBurgerCommand } from '../burgers/classic';
-import { KingBurgerCommand } from '../burgers/king';
-import { IBurgerCommand } from './../burgers/burger.interface';
-import { Cook } from './cook';
-export class Cashier {
+import { okBurgerType } from "../utilities";
+import { ICommand } from "./command.interface";
 
-    takeOrder(orders: string[], type: string) {
+export class CashierCommand implements ICommand {
 
-        orders.unshift(type);
-
+    constructor(private orders: okBurgerType[]) {
+        this.orders = orders;
     }
+    execute(type: okBurgerType): void {
+        this.orders.push(type);
+    }
+
+
 }

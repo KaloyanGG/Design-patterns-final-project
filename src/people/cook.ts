@@ -1,16 +1,27 @@
-export class Cook {
+import { BurgerFactory } from "../burgerFactory";
+import { IBurger } from "../burgers/burger.interface";
+import { ClassicBurger } from "../burgers/classicBurger";
+import { KingBurger } from "../burgers/kingBurger";
+import { VegetarianBurger } from "../burgers/vegetarianBurger";
+import { okBurgerType } from "../utilities";
+import { ICommand } from "./command.interface";
 
-    makeKingBurger() {
-        console.log("Making a king burger...");
+export class CookCommand implements ICommand {
+
+    private burgerFactory: BurgerFactory;
+
+    constructor(private orders: okBurgerType[]) {
+        this.orders = orders;
+        this.burgerFactory = new BurgerFactory();
     }
 
-    makeClassicBurger() {
-        console.log("Making a classic burger...");
+    execute(): IBurger | null {
+        const type = this.orders.shift();
+        if (!type) {
+            console.log('No orders to cook');
+            return null;
+        }
+        return this.burgerFactory.makeBurger(type);
+
     }
-
-    makeVegetarianBurger() {
-        console.log("Making a vegetarian burger...");
-    }
-
-
 }
