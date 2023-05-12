@@ -1,7 +1,7 @@
 import { IBurger } from "./burgers/burger.interface";
-import { ClassicBurger } from "./burgers/classicBurger";
-import { KingBurger } from "./burgers/kingBurger";
-import { VegetarianBurger } from "./burgers/vegetarianBurger";
+import { ClassicBurger } from "./burgers/types/classicBurger";
+import { KingBurger } from "./burgers/types/kingBurger";
+import { VegetarianBurger } from "./burgers/types/vegetarianBurger";
 import { okBurgerType } from "./utilities";
 
 export class BurgerFactory {

@@ -1,4 +1,6 @@
 import { BurgerFactory } from "./burgerFactory";
+import { BaseBurger } from "./burgers/baseBurger";
+import { IBurger } from "./burgers/burger.interface";
 import { CashierCommand } from "./people/cashier";
 import { CookCommand } from "./people/cook";
 import { okBurgerType } from "./utilities";
@@ -10,7 +12,12 @@ export class Restaurant {
     private cashierCommand: CashierCommand = new CashierCommand(this.orders);
     private cookCommand: CookCommand = new CookCommand(this.orders);
 
+
     private constructor() { }
+
+    serve(burger: BaseBurger): void {
+        console.log(`Serving: ${burger.type} burger${burger.sauces.length !== 0 ? ' with ' + burger.sauces.join(', ') : ''}.`);
+    }
 
     cashInBurger(type: string): void {
         if (!okBurgerType(type)) {
@@ -21,14 +28,7 @@ export class Restaurant {
         console.log(`Cashier: Order received: ${type}`);
     }
     makeBurger() {
-
-        const burgerOrNull = this.cookCommand.execute();
-        if (!burgerOrNull) {
-            console.log('No orders to cook');
-            return;
-        }
-        console.log(`Cook: ${burgerOrNull.type} burger is ready.`)
-        return burgerOrNull;
+        return this.cookCommand.execute();
     }
 
     static getInstance() {
