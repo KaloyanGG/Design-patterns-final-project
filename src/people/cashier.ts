@@ -1,13 +1,12 @@
-import { okBurgerType } from "../utilities";
-import { ICommand } from "./command.interface";
+import { IBurger } from "../burgers/burger.interface";
+import { BurgerType, okBurgerType } from "../utilities";
+import { Cook } from "./cook";
 
-export class CashierCommand implements ICommand {
+export class CashierCommand {
 
-    constructor(private orders: okBurgerType[]) {
-        this.orders = orders;
-    }
-    execute(type: okBurgerType): void {
-        this.orders.push(type);
+    execute(cook: Cook, type: BurgerType): IBurger {
+        // this.orders.push(type);
+        return cook.makeBurger(type);
     }
 
 

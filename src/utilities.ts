@@ -1,5 +1,13 @@
-export type okBurgerType = 'classic' | 'king' | 'vegetarian';
+// export type okBurgerType = 'classic' | 'king' | 'vegetarian';
 
-export function okBurgerType(type: string): type is okBurgerType {
-    return ['classic', 'king', 'vegetarian'].includes(type);
+export enum BurgerType {
+    CLASSIC = 'classic',
+    KING = 'king',
+    VEGETARIAN = 'vegetarian'
 }
+
+export function okBurgerType(type: BurgerType): boolean {
+    return Object.values(BurgerType).includes(type);
+    // return ['classic', 'king', 'vegetarian'].includes(type);
+}
+

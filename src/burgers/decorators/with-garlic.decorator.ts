@@ -7,4 +7,5 @@ export class BurgerWithGarlic extends BaseBurgerDecorator {
         burger.addSauce('garlic');
         super(burger);
     }
+    
 }

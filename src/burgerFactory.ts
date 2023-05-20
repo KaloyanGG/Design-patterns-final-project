@@ -2,26 +2,23 @@ import { IBurger } from "./burgers/burger.interface";
 import { ClassicBurger } from "./burgers/types/classicBurger";
 import { KingBurger } from "./burgers/types/kingBurger";
 import { VegetarianBurger } from "./burgers/types/vegetarianBurger";
-import { okBurgerType } from "./utilities";
+import { BurgerType, okBurgerType } from "./utilities";
 
 export class BurgerFactory {
 
-    makeBurger(type: okBurgerType): IBurger {
-        let burger = null;
+    makeBurger(type: BurgerType): IBurger {
 
         switch (type) {
             case 'classic':
-                burger = new ClassicBurger();
-                break;
+                return new ClassicBurger();
             case 'king':
-                burger = new KingBurger();
-                break;
+                return new KingBurger();
             case 'vegetarian':
-                burger = new VegetarianBurger();
-                break;
+                return new VegetarianBurger();
+            default:
+                return new ClassicBurger();
         }
 
-        return burger;
     }
 
 }
