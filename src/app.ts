@@ -14,6 +14,22 @@ if (!burger) {
     burger = new BurgerWithGarlic(burger).getBurger();
     restaurant.serve(burger);
 }
+let burger1 = restaurant.makeBurger(BurgerType.VEGETARIAN);
+
+let burger2 = restaurant.makeBurger(BurgerType.CLASSIC);
+
+let burger3 = restaurant.makeBurger(BurgerType.CLASSIC);
+let burger4 = restaurant.makeBurger(BurgerType.KING);
+
+restaurant.finishRest();
+let burger5 = restaurant.makeBurger(BurgerType.CLASSIC);
+let burger9 = restaurant.makeBurger(BurgerType.VEGETARIAN);
+
+let burger6 = restaurant.makeBurger(BurgerType.CLASSIC);
+
+let burger7 = restaurant.makeBurger(BurgerType.CLASSIC);
+let burger10 = restaurant.makeBurger(BurgerType.CLASSIC);
+
 
 
 
